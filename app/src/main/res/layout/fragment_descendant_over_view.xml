@@ -1,0 +1,122 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantOverViewFragment">
+
+    <LinearLayout
+        android:background="@color/silver_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorRed"
+            android:layout_marginBottom="2dp">
+            <ImageView
+                android:id="@+id/video_camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/in_home"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_bg_rounded"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_heart_rate_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_heartbeat_line"/>
+
+                <ImageView
+                    android:id="@+id/img_heart"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:padding="30dp"
+                    android:src="@drawable/heart_color"/>
+                <TextView
+                    android:id="@+id/txt_heart_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="3dp"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:text="80 BPM"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_bg_rounded"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_des_analysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_analysis"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_bg_rounded"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_des_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/call"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_bg_rounded"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_des_pills"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_pills"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
