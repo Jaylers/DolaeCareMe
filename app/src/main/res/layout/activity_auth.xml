@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_auth"
-    tools:context="com.cmu.jaylerr.dolaecareme.auth.views.AuthActivity">
+    tools:context="com.cmu.jaylerr.dolaecareme.center.views.auth.AuthActivity">
     <FrameLayout
         android:id="@+id/frame_fragment_base_auth"
         android:layout_width="match_parent"

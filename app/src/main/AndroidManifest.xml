@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/FullscreenNoActionBar">
         <activity
-            android:name=".auth.views.AuthActivity"
+            android:name=".center.views.auth.AuthActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,7 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.auth.views.AuthActivity;
+import com.cmu.jaylerr.dolaecareme.center.views.auth.AuthActivity;
+import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,8 +32,13 @@ public class ElderlyMainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_home);
                     doHome();
                     return true;
+                case R.id.navigation_heart:
+                    mTextMessage.setText(R.string.title_heart);
+                    doHeart();
+                    return true;
                 case R.id.navigation_pills:
                     mTextMessage.setText(R.string.title_pills);
+                    doPills();
                     return true;
                 case R.id.navigation_settings:
                     mTextMessage.setText(R.string.title_settings);
@@ -81,7 +87,31 @@ public class ElderlyMainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void doSettings(){
+    private void doHeart(){
+        HeartInfoFragment heartInfoFragment = new HeartInfoFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_elderly_main_content, heartInfoFragment);
+        ft.commit();
+    }
 
+    private void doPills(){
+//        FragmentManager manager = getSupportFragmentManager();
+//        FragmentTransaction ft = manager.beginTransaction();
+//        ft.setCustomAnimations(R.anim.fade_in,
+//                R.anim.fade_out);
+//        ft.replace(R.id.frame_elderly_main_content, elderlyOverViewFragment);
+//        ft.commit();
+    }
+
+    private void doSettings(){
+//        FragmentManager manager = getSupportFragmentManager();
+//        FragmentTransaction ft = manager.beginTransaction();
+//        ft.setCustomAnimations(R.anim.fade_in,
+//                R.anim.fade_out);
+//        ft.replace(R.id.frame_elderly_main_content, elderlyOverViewFragment);
+//        ft.commit();
     }
 }

@@ -1,4 +1,4 @@
-package com.cmu.jaylerr.dolaecareme.auth.views;
+package com.cmu.jaylerr.dolaecareme.center.views.auth;
 
 import android.content.Intent;
 import android.os.Bundle;

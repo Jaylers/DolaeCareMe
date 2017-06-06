@@ -1,4 +1,4 @@
-package com.cmu.jaylerr.dolaecareme.auth.views;
+package com.cmu.jaylerr.dolaecareme.center.views.auth;
 
 
 import android.content.Intent;
@@ -14,44 +14,39 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
+import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DescendantSignInFragment extends Fragment {
+public class ElderlySignInFragment extends Fragment {
 
 
-    public DescendantSignInFragment() {
+    public ElderlySignInFragment() {
         // Required empty public constructor
     }
 
-    View view;
-    EditText edt_des_user;
-    EditText edt_eld_user;
-    EditText edt_eld_gmail;
-    EditText edt_eld_serial;
     Button btn_create;
+    EditText edt_username;
+    EditText edt_serial_number;
     TextView txt_back;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        final View view;
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_descendant_sign_in, container, false);
-        edt_des_user = (EditText) view.findViewById(R.id.edt_des_username);
-        edt_eld_user = (EditText) view.findViewById(R.id.edt_elderly_username);
-        edt_eld_gmail = (EditText) view.findViewById(R.id.edt_elderly_gmail_account);
-        edt_eld_serial = (EditText) view.findViewById(R.id.edt_machine_serial_number);
-        btn_create = (Button) view.findViewById(R.id.btn_frag_des_create);
+        view =  inflater.inflate(R.layout.fragment_elderly_sign_in, container, false);
+        btn_create = (Button) view.findViewById(R.id.btn_elderly_create);
+        edt_username = (EditText) view.findViewById(R.id.edt_elderly_username);
+        edt_serial_number = (EditText) view.findViewById(R.id.edt_elderly_serial_number);
         txt_back = (TextView) view.findViewById(R.id.txt_back);
-
 
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isSignInForm()){
-                    Intent intent = new Intent(getActivity(), DescendantMainActivity.class);
+                    Intent intent = new Intent(getActivity(), ElderlyMainActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                 }
@@ -70,21 +65,16 @@ public class DescendantSignInFragment extends Fragment {
                 ft.commit();
             }
         });
+
         return view;
     }
 
     private Boolean isSignInForm(){
-        if (edt_des_user.getText().toString().isEmpty()){
-            edt_des_user.setError(getString(R.string.err_message_required));
+        if (edt_username.getText().toString().isEmpty()){
+            edt_username.setError(getString(R.string.err_message_required));
             return false;
-        }else if (edt_eld_user.getText().toString().isEmpty()){
-            edt_eld_user.setError(getString(R.string.err_message_required));
-            return false;
-        }else if (edt_eld_gmail.getText().toString().isEmpty()){
-            edt_eld_gmail.setError(getString(R.string.err_message_required));
-            return false;
-        }else if (edt_eld_serial.getText().toString().isEmpty()){
-            edt_eld_serial.setError(getString(R.string.err_message_required));
+        }else if (edt_serial_number.getText().toString().isEmpty()){
+            edt_serial_number.setError(getString(R.string.err_message_required));
             return false;
         }else return true;
     }
