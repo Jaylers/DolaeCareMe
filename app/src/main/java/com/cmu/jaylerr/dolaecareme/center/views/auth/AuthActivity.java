@@ -10,14 +10,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.cmu.jaylerr.dolaecareme.R;
+import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
 import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
+import com.cmu.jaylerr.dolaecareme.utility.actioncenter.LanguageManager;
+import com.cmu.jaylerr.dolaecareme.utility.sharedpreference.SharedSignedUser;
+import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
 
 public class AuthActivity extends AppCompatActivity {
 
+    SharedSignedUser sharedSignedUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+        LanguageManager languageManager = new LanguageManager(AuthActivity.this);
+        languageManager.setApplicationLanguage();
+        sharedSignedUser = new SharedSignedUser(AuthActivity.this);
 
         if (isSigned()){
             signIn();
@@ -27,14 +35,24 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void signIn(){
-        Intent intent = new Intent(AuthActivity.this, ElderlyMainActivity.class);
-        startActivity(intent);
-        finish();
+        if (sharedSignedUser.getStateSignIn().equals(SharedFlag.flag_descendant)){
+            Intent intent = new Intent(AuthActivity.this, DescendantMainActivity.class);
+            startActivity(intent);
+            finish();
+        }else if (sharedSignedUser.getStateSignIn().equals(SharedFlag.flag_elderly)){
+            Intent intent = new Intent(AuthActivity.this, ElderlyMainActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            openBaseAuth();
+        }
     }
 
 
     private Boolean isSigned(){
-        return false;
+        if (sharedSignedUser.getStateSignIn().equals(SharedFlag.flag_unknown)){
+            return false;
+        }else return true;
     }
 
     private void openBaseAuth(){
@@ -59,7 +77,7 @@ public class AuthActivity extends AppCompatActivity {
             }else {
                 confirm++;
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        getString(R.string.message_confirm_to_close_app),
+                        getString(R.string.app_message_confirm_to_close_app),
                         Toast.LENGTH_SHORT);
                 toast.show();
                 Handler handler = new Handler();

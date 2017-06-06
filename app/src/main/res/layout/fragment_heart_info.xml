@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/img_heart"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="150dp"
             android:src="@drawable/ic_heart_white"/>
         <LinearLayout
             android:id="@+id/lin_heart_rate_info_group"
@@ -24,16 +24,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="PUL"/>
+
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="/min"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="/min"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
@@ -42,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="75"
-            android:textSize="70sp"
+            android:textSize="60sp"
             android:layout_marginEnd="20dp"
             android:textAlignment="textEnd"
             android:textStyle="bold"
@@ -55,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_border_round_huge"
-            android:layout_margin="40dp"
+            android:layout_margin="35dp"
             android:padding="@dimen/edt_margin_line_between_default_20">
 
             <LinearLayout
@@ -68,14 +70,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="50sp"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:text="SYS"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:text="mmhg"/>
             </LinearLayout>
@@ -85,20 +87,21 @@
                 android:layout_below="@+id/lin_heart_rate_group_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_alignParentStart="true"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="50sp"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:text="DIA"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:text="mmhg"/>
             </LinearLayout>
@@ -108,7 +111,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="70sp"
+                android:textSize="55sp"
+                android:textAlignment="center"
                 android:text="122"
                 android:layout_above="@+id/lin_heart_rate_group_2" />
 
@@ -116,9 +120,11 @@
                 android:id="@+id/txt_heart_dia_value"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/txt_heart_sys_value"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="70sp"
+                android:textAlignment="center"
+                android:textSize="55sp"
                 android:text="82"/>
 
         </RelativeLayout>

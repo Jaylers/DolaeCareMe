@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
+import com.cmu.jaylerr.dolaecareme.utility.sharedpreference.SharedSignedUser;
+import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +32,7 @@ public class ElderlySignInFragment extends Fragment {
     EditText edt_username;
     EditText edt_serial_number;
     TextView txt_back;
+    SharedSignedUser sharedSignedUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,11 +44,13 @@ public class ElderlySignInFragment extends Fragment {
         edt_username = (EditText) view.findViewById(R.id.edt_elderly_username);
         edt_serial_number = (EditText) view.findViewById(R.id.edt_elderly_serial_number);
         txt_back = (TextView) view.findViewById(R.id.txt_back);
+        sharedSignedUser = new SharedSignedUser(getActivity());
 
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isSignInForm()){
+                    sharedSignedUser.setStateSignIn(SharedFlag.flag_elderly);
                     Intent intent = new Intent(getActivity(), ElderlyMainActivity.class);
                     startActivity(intent);
                     getActivity().finish();

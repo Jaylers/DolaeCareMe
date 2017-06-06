@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_message_call">โทร</string>
+    <string name="app_message_cancel">ยกเลิก</string>
+    <string name="app_message_cctv">กล้องวงจรปิด</string>
+    <string name="app_message_dismiss">ปิด</string>
+    <string name="app_message_no">ไม่</string>
+    <string name="app_message_ok">ตกลง</string>
+    <string name="app_message_request_permission_call">กรุณาอนุญาติให้มีการเข้าถึงการโทร</string>
+    <string name="app_message_permission_denied">การอนุญาตถูกปฏิเสธ</string>
+    <string name="app_message_yes">ใช่</string>
+    <string name="auth_message_create">สร้าง</string>
+    <string name="auth_message_gmail_account">บัญชี Gmail</string>
+    <string name="auth_message_machine_serial_number">หมายเลขเครื่อง</string>
+    <string name="auth_message_sign_in">เข้าสู่ระบบ</string>
+    <string name="auth_message_user_gmail">ผู้ใช้บัญชี gmail</string>
+    <string name="auth_message_username">ชื่อผู้ใช้</string>
+    <string name="err_message_required">ฟิลด์ที่ต้องระบุ</string>
+    <string name="hello_blank_fragment"></string>
+    <string name="message_back">กลับ</string>
+    <string name="app_message_confirm_to_close_app">กดกลับอีกครั้งเพื่อออกจากแอปพลิเคชัน</string>
+    <string name="title_activity">กิจกรรม</string>
+    <string name="title_activity_descendant_main">หน้าหลักผู้ดูแล</string>
+    <string name="title_activity_elderly_main">หน้าหลักผู้สูงอายุ</string>
+    <string name="title_heart">หัวใจ</string>
+    <string name="title_home">หน้าหลัก</string>
+    <string name="title_remind">การแจ้งเตือน</string>
+    <string name="title_settings">ตั้งค่า</string>
+    <string name="txt_descendant">ลูกหลาน</string>
+    <string name="app_message_app_language">"ภาษาแอปพลิเคชัน "</string>
+    <string name="app_message_sign_out">ออกจากระบบ</string>
+    <string name="app_message_language">ภาษา</string>
+    <string name="language_english">ภาษาอังกฤษ</string>
+    <string name="language_thailand">Thai</string>
+</resources>

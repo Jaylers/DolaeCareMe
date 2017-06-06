@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.auth.AuthActivity;
+import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
 import com.cmu.jaylerr.dolaecareme.utility.alarm.AlarmReceiverActivity;
 
@@ -80,9 +80,8 @@ public class DescendantMainActivity extends AppCompatActivity {
         profile_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DescendantMainActivity.this, AuthActivity.class);
-                startActivity(intent);
-                finish();
+                ApplicationManager applicationManager = new ApplicationManager(DescendantMainActivity.this);
+                applicationManager.signOut();
             }
         });
     }
@@ -133,12 +132,12 @@ public class DescendantMainActivity extends AppCompatActivity {
     }
 
     private void doRemind(){
-        RemindFragment remindFragment = new RemindFragment();
+        DescendantRemindFragment descendantRemindFragment = new DescendantRemindFragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         ft.setCustomAnimations(R.anim.fade_in,
                 R.anim.fade_out);
-        ft.replace(R.id.frame_descendant_main_content, remindFragment);
+        ft.replace(R.id.frame_descendant_main_content, descendantRemindFragment);
         ft.commit();
     }
 

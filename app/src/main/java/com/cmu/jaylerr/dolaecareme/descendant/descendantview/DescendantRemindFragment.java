@@ -12,10 +12,10 @@ import com.cmu.jaylerr.dolaecareme.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RemindFragment extends Fragment {
+public class DescendantRemindFragment extends Fragment {
 
 
-    public RemindFragment() {
+    public DescendantRemindFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class RemindFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_remind, container, false);
+        return inflater.inflate(R.layout.fragment_descendant_remind, container, false);
     }
 
 }

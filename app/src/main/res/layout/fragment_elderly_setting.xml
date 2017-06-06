@@ -2,11 +2,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/silver_overlay"
     tools:context="com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlySettingFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/title_settings" />
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relative_elderly_setting_language"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/img_language"
+                android:layout_width="50dp"
+                android:padding="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_language"/>
+            <TextView
+                android:id="@+id/txt_language"
+                android:layout_toEndOf="@+id/img_language"
+                android:layout_toStartOf="@+id/img_language_next"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/app_message_language"/>
+            <ImageView
+                android:id="@+id/img_language_next"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_next"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_elderly_setting_sign_out"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/img_sign_out"
+                android:layout_width="50dp"
+                android:padding="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_sign_out"/>
+            <TextView
+                android:id="@+id/txt_sign_out"
+                android:layout_toEndOf="@+id/img_sign_out"
+                android:layout_toStartOf="@+id/img_sign_out_next"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/app_message_sign_out"/>
+            <ImageView
+                android:id="@+id/img_sign_out_next"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_next"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

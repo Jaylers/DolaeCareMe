@@ -1,6 +1,5 @@
 package com.cmu.jaylerr.dolaecareme.elderly.elderlyview;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.auth.AuthActivity;
+import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -70,9 +69,8 @@ public class ElderlyMainActivity extends AppCompatActivity {
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ElderlyMainActivity.this, AuthActivity.class);
-                startActivity(intent);
-                finish();
+                ApplicationManager applicationManager = new ApplicationManager(ElderlyMainActivity.this);
+                applicationManager.signOut();
             }
         });
     }

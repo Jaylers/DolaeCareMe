@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
 import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedKey;
 
 /**
@@ -12,31 +13,21 @@ import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedKey;
 
 public class SharedSignedUser {
     Activity activity;
+    private SharedPreferences account;
     private SharedPreferences.Editor editor;
 
     public SharedSignedUser(Activity activity) {
         this.activity = activity;
+        account = activity.getSharedPreferences(SharedKey.key_sign_in, Context.MODE_PRIVATE);
+        editor = account.edit();
     }
 
-    public void setElderlySignIn(){
-        SharedPreferences sharedPref = activity.getSharedPreferences(SharedKey.key_sign_in, Context.MODE_PRIVATE);
-        editor = sharedPref.edit();
-        editor.putString(SharedKey.key_sign_in_elderly, "user_id");
+    public void setStateSignIn(String state){
+        editor.putString(SharedKey.key_sign_in_state, state);
         editor.apply();
     }
 
-    public void setDescendantSignIn(){
-        SharedPreferences sharedPref = activity.getSharedPreferences(SharedKey.key_sign_in, Context.MODE_PRIVATE);
-        editor = sharedPref.edit();
-        editor.putString(SharedKey.key_sign_in_descendant, "user_id");
-        editor.apply();
-    }
-
-    public Boolean isElderSignIn(){
-        return false;
-    }
-
-    public Boolean isDescendantSignIn(){
-        return false;
+    public String getStateSignIn(){
+        return account.getString(SharedKey.key_sign_in_state, SharedFlag.flag_unknown);
     }
 }

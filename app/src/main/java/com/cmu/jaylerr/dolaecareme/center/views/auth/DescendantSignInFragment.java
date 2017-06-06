@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
+import com.cmu.jaylerr.dolaecareme.utility.sharedpreference.SharedSignedUser;
+import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,24 +35,35 @@ public class DescendantSignInFragment extends Fragment {
     EditText edt_eld_serial;
     Button btn_create;
     TextView txt_back;
+    SharedSignedUser sharedSignedUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_descendant_sign_in, container, false);
+        setInjectionView();
+        setOnClick();
+
+        return view;
+    }
+
+    private void setInjectionView(){
         edt_des_user = (EditText) view.findViewById(R.id.edt_des_username);
         edt_eld_user = (EditText) view.findViewById(R.id.edt_elderly_username);
         edt_eld_gmail = (EditText) view.findViewById(R.id.edt_elderly_gmail_account);
         edt_eld_serial = (EditText) view.findViewById(R.id.edt_machine_serial_number);
         btn_create = (Button) view.findViewById(R.id.btn_frag_des_create);
         txt_back = (TextView) view.findViewById(R.id.txt_back);
+        sharedSignedUser = new SharedSignedUser(getActivity());
+    }
 
-
+    private void setOnClick(){
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isSignInForm()){
+                    sharedSignedUser.setStateSignIn(SharedFlag.flag_descendant);
                     Intent intent = new Intent(getActivity(), DescendantMainActivity.class);
                     startActivity(intent);
                     getActivity().finish();
@@ -70,7 +83,6 @@ public class DescendantSignInFragment extends Fragment {
                 ft.commit();
             }
         });
-        return view;
     }
 
     private Boolean isSignInForm(){
