@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
-import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ContactAction;
+import com.cmu.jaylerr.dolaecareme.utility.actioncenter.CallMobile;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,8 +58,8 @@ public class DescendantOverViewFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                ContactAction contactAction = new ContactAction(getActivity());
-                contactAction.Call(elderly_mobile_number);
+                CallMobile callMobile = new CallMobile(getActivity());
+                callMobile.Call(elderly_mobile_number);
             }
         });
 

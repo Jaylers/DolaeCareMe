@@ -36,8 +36,8 @@ public class ElderlyMainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_heart);
                     doHeart();
                     return true;
-                case R.id.navigation_pills:
-                    mTextMessage.setText(R.string.title_pills);
+                case R.id.navigation_remind:
+                    mTextMessage.setText(R.string.title_remind);
                     doPills();
                     return true;
                 case R.id.navigation_settings:
@@ -98,20 +98,22 @@ public class ElderlyMainActivity extends AppCompatActivity {
     }
 
     private void doPills(){
-//        FragmentManager manager = getSupportFragmentManager();
-//        FragmentTransaction ft = manager.beginTransaction();
-//        ft.setCustomAnimations(R.anim.fade_in,
-//                R.anim.fade_out);
-//        ft.replace(R.id.frame_elderly_main_content, elderlyOverViewFragment);
-//        ft.commit();
+        ElderlyPillsFragment elderlyPillsFragment = new ElderlyPillsFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_elderly_main_content, elderlyPillsFragment);
+        ft.commit();
     }
 
     private void doSettings(){
-//        FragmentManager manager = getSupportFragmentManager();
-//        FragmentTransaction ft = manager.beginTransaction();
-//        ft.setCustomAnimations(R.anim.fade_in,
-//                R.anim.fade_out);
-//        ft.replace(R.id.frame_elderly_main_content, elderlyOverViewFragment);
-//        ft.commit();
+        ElderlySettingFragment elderlySettingFragment = new ElderlySettingFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_elderly_main_content, elderlySettingFragment);
+        ft.commit();
     }
 }

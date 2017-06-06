@@ -18,11 +18,11 @@ import com.cmu.jaylerr.dolaecareme.R;
  * Created by jaylerr on 20-Apr-17.
  */
 
-public class ContactAction {
-    Activity activity;
+public class CallMobile {
+    private Activity activity;
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
-    public ContactAction(Activity activity) {
+    public CallMobile(Activity activity) {
         this.activity = activity;
     }
 

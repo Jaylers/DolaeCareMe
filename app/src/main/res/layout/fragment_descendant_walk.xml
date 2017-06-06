@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlySettingFragment">
+    tools:context="com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantWalkFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/title_settings" />
+        android:text="@string/title_activity" />
 
 </FrameLayout>
