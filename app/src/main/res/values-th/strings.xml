@@ -30,6 +30,6 @@
     <string name="app_message_app_language">"ภาษาแอปพลิเคชัน "</string>
     <string name="app_message_sign_out">ออกจากระบบ</string>
     <string name="app_message_language">ภาษา</string>
-    <string name="language_english">ภาษาอังกฤษ</string>
-    <string name="language_thailand">Thai</string>
+    <string name="auth_message_i_am_descendant">ฉันเป็นลูกหลาน</string>
+    <string name="auth_message_i_am_elderly">ฉันเป็นผู้สูงอายุ</string>
 </resources>

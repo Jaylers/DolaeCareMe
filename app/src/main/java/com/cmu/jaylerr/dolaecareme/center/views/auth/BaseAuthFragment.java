@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
+import com.cmu.jaylerr.dolaecareme.center.views.LanguageListFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +29,7 @@ public class BaseAuthFragment extends Fragment {
     View view_elderly;
     ImageView img_descendant;
     ImageView img_elderly;
+    TextView language_setting;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +46,7 @@ public class BaseAuthFragment extends Fragment {
         view_elderly = view.findViewById(R.id.relative_elderly);
         img_descendant = (ImageView) view.findViewById(R.id.img_descendant);
         img_elderly = (ImageView) view.findViewById(R.id.img_elderly);
+        language_setting = (TextView) view.findViewById(R.id.txt_language_setting);
     }
 
 
@@ -69,6 +73,19 @@ public class BaseAuthFragment extends Fragment {
                 ft.setCustomAnimations(R.anim.fade_in,
                         R.anim.fade_out);
                 ft.replace(R.id.frame_fragment_base_auth, elderlySignInFragment);
+                ft.commit();
+            }
+        });
+
+        language_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageListFragment lang = new LanguageListFragment();
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction ft = manager.beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_up_in_from_buttom,
+                        R.anim.slide_up_out);
+                ft.replace(R.id.frame_fragment_base_auth, lang);
                 ft.commit();
             }
         });

@@ -11,7 +11,7 @@
         android:background="@drawable/background_auth">
         <RelativeLayout
             android:id="@+id/relative_descendant"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="250dp"
             android:layout_alignParentTop="true">
             <ImageView
@@ -30,14 +30,14 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="65dp"
                 android:textStyle="bold"
-                android:text="I am descendant"/>
+                android:text="@string/auth_message_i_am_descendant"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relative_elderly"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="250dp"
             android:layout_alignParentBottom="true">
             <ImageView
@@ -63,9 +63,20 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="50dp"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="70dp"
             android:textStyle="bold"
-            android:text="I am elderly"/>
+            android:text="@string/auth_message_i_am_elderly"/>
+        <TextView
+            android:id="@+id/txt_language_setting"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="@string/app_message_language"/>
     </RelativeLayout>
 
 </FrameLayout>

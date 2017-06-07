@@ -20,6 +20,7 @@
             android:layout_below="@id/img_auth_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:text="@string/auth_message_user_gmail" />
@@ -101,8 +102,8 @@
             style="@style/button_round_style"
             android:text="@string/auth_message_create"
             android:layout_marginTop="@dimen/edt_margin_line_between_default_10"
-            android:layout_marginStart="@dimen/edt_margin_default"
-            android:layout_marginEnd="@dimen/edt_margin_default"/>
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"/>
 
         <TextView
             android:id="@+id/txt_back"

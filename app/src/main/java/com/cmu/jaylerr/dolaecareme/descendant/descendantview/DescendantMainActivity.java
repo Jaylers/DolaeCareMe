@@ -11,11 +11,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
 import com.cmu.jaylerr.dolaecareme.utility.alarm.AlarmReceiverActivity;
 
@@ -77,13 +75,7 @@ public class DescendantMainActivity extends AppCompatActivity {
     }
 
     private void setOnClick(){
-        profile_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ApplicationManager applicationManager = new ApplicationManager(DescendantMainActivity.this);
-                applicationManager.signOut();
-            }
-        });
+
     }
 
     private void doAlert(){

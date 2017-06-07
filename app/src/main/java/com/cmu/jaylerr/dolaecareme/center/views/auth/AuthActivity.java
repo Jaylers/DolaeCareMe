@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.cmu.jaylerr.dolaecareme.R;
+import com.cmu.jaylerr.dolaecareme.center.views.LanguageListFragment;
 import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
 import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.LanguageManager;
@@ -48,13 +49,6 @@ public class AuthActivity extends AppCompatActivity {
         }
     }
 
-
-    private Boolean isSigned(){
-        if (sharedSignedUser.getStateSignIn().equals(SharedFlag.flag_unknown)){
-            return false;
-        }else return true;
-    }
-
     private void openBaseAuth(){
         BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
         FragmentManager manager = getSupportFragmentManager();
@@ -65,11 +59,21 @@ public class AuthActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    private Boolean isSigned(){
+        if (sharedSignedUser.getStateSignIn().equals(SharedFlag.flag_unknown)){
+            return false;
+        }else return true;
+    }
+
     private int confirm = 0;
     @Override
     public void onBackPressed() {
         Fragment currentFragment = getSupportFragmentManager()
                 .findFragmentById(R.id.frame_fragment_base_auth);
+
+        BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
         if (currentFragment instanceof BaseAuthFragment){
             if (confirm>=1){
                 confirm = 0;
@@ -88,8 +92,16 @@ public class AuthActivity extends AppCompatActivity {
                     }
                 },2000);
             }
+        }else if (currentFragment instanceof LanguageListFragment){
+            ft.setCustomAnimations(R.anim.slide_down_in,
+                    R.anim.slide_down_out);
+            ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
+            ft.commit();
         }else {
-            openBaseAuth();
+            ft.setCustomAnimations(R.anim.fade_in,
+                    R.anim.fade_out);
+            ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
+            ft.commit();
         }
     }
 }

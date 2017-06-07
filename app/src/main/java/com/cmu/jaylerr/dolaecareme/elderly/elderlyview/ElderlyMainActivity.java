@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -66,13 +64,7 @@ public class ElderlyMainActivity extends AppCompatActivity {
     }
 
     private void setOnClick(){
-        profileImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ApplicationManager applicationManager = new ApplicationManager(ElderlyMainActivity.this);
-                applicationManager.signOut();
-            }
-        });
+
     }
 
     private void doHome(){
