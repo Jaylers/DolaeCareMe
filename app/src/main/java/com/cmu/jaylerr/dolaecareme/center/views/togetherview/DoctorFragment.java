@@ -1,4 +1,4 @@
-package com.cmu.jaylerr.dolaecareme.elderly.elderlyview;
+package com.cmu.jaylerr.dolaecareme.center.views.togetherview;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.cmu.jaylerr.dolaecareme.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ElderlyPillsFragment extends Fragment {
+public class DoctorFragment extends Fragment {
 
 
-    public ElderlyPillsFragment() {
+    public DoctorFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class ElderlyPillsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_elderly_pills, container, false);
+        view = inflater.inflate(R.layout.fragment_together_doctor, container, false);
 
         return view;
     }

@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.HeartInfoFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.RemindFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,7 +36,7 @@ public class ElderlyMainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_remind:
                     mTextMessage.setText(R.string.title_remind);
-                    doPills();
+                    doRemind();
                     return true;
                 case R.id.navigation_settings:
                     mTextMessage.setText(R.string.title_settings);
@@ -87,13 +88,13 @@ public class ElderlyMainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void doPills(){
-        ElderlyPillsFragment elderlyPillsFragment = new ElderlyPillsFragment();
+    private void doRemind(){
+        RemindFragment remindFragment = new RemindFragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         ft.setCustomAnimations(R.anim.fade_in,
                 R.anim.fade_out);
-        ft.replace(R.id.frame_elderly_main_content, elderlyPillsFragment);
+        ft.replace(R.id.frame_elderly_main_content, remindFragment);
         ft.commit();
     }
 

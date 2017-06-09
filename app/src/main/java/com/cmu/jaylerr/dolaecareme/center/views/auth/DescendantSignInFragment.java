@@ -9,14 +9,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
 import com.cmu.jaylerr.dolaecareme.utility.sharedpreference.SharedSignedUser;
 import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,12 +31,10 @@ public class DescendantSignInFragment extends Fragment {
     }
 
     View view;
-    EditText edt_des_user;
-    EditText edt_eld_user;
-    EditText edt_eld_gmail;
-    EditText edt_eld_serial;
-    Button btn_create;
-    TextView txt_back;
+    @BindView(R.id.edt_des_username) EditText edt_des_user;
+    @BindView(R.id.edt_elderly_username) EditText edt_eld_user;
+    @BindView(R.id.edt_elderly_gmail_account) EditText edt_eld_gmail;
+    @BindView(R.id.edt_machine_serial_number) EditText edt_eld_serial;
     SharedSignedUser sharedSignedUser;
 
     @Override
@@ -42,47 +42,28 @@ public class DescendantSignInFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_descendant_sign_in, container, false);
-        setInjectionView();
-        setOnClick();
-
+        ButterKnife.bind(this, view);
+        sharedSignedUser = new SharedSignedUser(getActivity());
         return view;
     }
 
-    private void setInjectionView(){
-        edt_des_user = (EditText) view.findViewById(R.id.edt_des_username);
-        edt_eld_user = (EditText) view.findViewById(R.id.edt_elderly_username);
-        edt_eld_gmail = (EditText) view.findViewById(R.id.edt_elderly_gmail_account);
-        edt_eld_serial = (EditText) view.findViewById(R.id.edt_machine_serial_number);
-        btn_create = (Button) view.findViewById(R.id.btn_frag_des_create);
-        txt_back = (TextView) view.findViewById(R.id.txt_back);
-        sharedSignedUser = new SharedSignedUser(getActivity());
+    @OnClick(R.id.btn_frag_des_create) public void onDesCreate(){
+        if (isSignInForm()){
+            sharedSignedUser.setStateSignIn(SharedFlag.flag_descendant);
+            Intent intent = new Intent(getActivity(), DescendantMainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
     }
 
-    private void setOnClick(){
-        btn_create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isSignInForm()){
-                    sharedSignedUser.setStateSignIn(SharedFlag.flag_descendant);
-                    Intent intent = new Intent(getActivity(), DescendantMainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
-                }
-            }
-        });
-
-        txt_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.setCustomAnimations(R.anim.fade_in,
-                        R.anim.fade_out);
-                ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
-                ft.commit();
-            }
-        });
+    @OnClick(R.id.txt_des_back) public void onBack(){
+        BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
+        ft.commit();
     }
 
     private Boolean isSignInForm(){

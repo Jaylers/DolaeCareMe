@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.LanguageListFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.LanguageListFragment;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 
 /**

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPastelPink"
-    tools:context="com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment">
+    tools:context="com.cmu.jaylerr.dolaecareme.center.views.togetherview.HeartInfoFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

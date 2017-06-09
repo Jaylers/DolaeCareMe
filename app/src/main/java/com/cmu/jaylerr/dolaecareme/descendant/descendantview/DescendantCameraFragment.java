@@ -12,19 +12,30 @@ import com.cmu.jaylerr.dolaecareme.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DescendantRemindFragment extends Fragment {
+public class DescendantCameraFragment extends Fragment {
 
 
-    public DescendantRemindFragment() {
+    public DescendantCameraFragment() {
         // Required empty public constructor
     }
 
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_descendant_remind, container, false);
+        view = inflater.inflate(R.layout.fragment_descendant_camera, container, false);
+
+        return view;
+    }
+
+    private void setInjectionView(){
+
+    }
+
+    private void setOnclick(){
+
     }
 
 }

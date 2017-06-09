@@ -9,14 +9,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
 import com.cmu.jaylerr.dolaecareme.utility.sharedpreference.SharedSignedUser;
 import com.cmu.jaylerr.dolaecareme.utility.sharedstring.SharedFlag;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,10 +30,8 @@ public class ElderlySignInFragment extends Fragment {
         // Required empty public constructor
     }
 
-    Button btn_create;
-    EditText edt_username;
-    EditText edt_serial_number;
-    TextView txt_back;
+    @BindView(R.id.edt_elderly_username) EditText edt_username;
+    @BindView(R.id.edt_elderly_serial_number) EditText edt_serial_number;
     SharedSignedUser sharedSignedUser;
 
     @Override
@@ -40,38 +40,29 @@ public class ElderlySignInFragment extends Fragment {
         final View view;
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_elderly_sign_in, container, false);
-        btn_create = (Button) view.findViewById(R.id.btn_elderly_create);
-        edt_username = (EditText) view.findViewById(R.id.edt_elderly_username);
-        edt_serial_number = (EditText) view.findViewById(R.id.edt_elderly_serial_number);
-        txt_back = (TextView) view.findViewById(R.id.txt_back);
+        ButterKnife.bind(this, view);
         sharedSignedUser = new SharedSignedUser(getActivity());
 
-        btn_create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isSignInForm()){
-                    sharedSignedUser.setStateSignIn(SharedFlag.flag_elderly);
-                    Intent intent = new Intent(getActivity(), ElderlyMainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
-                }
-            }
-        });
-
-        txt_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.setCustomAnimations(R.anim.fade_in,
-                        R.anim.fade_out);
-                ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
-                ft.commit();
-            }
-        });
-
         return view;
+    }
+
+    @OnClick(R.id.btn_elderly_create) public void onCreateClicked(){
+        if (isSignInForm()){
+            sharedSignedUser.setStateSignIn(SharedFlag.flag_elderly);
+            Intent intent = new Intent(getActivity(), ElderlyMainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
+    }
+
+    @OnClick(R.id.txt_eld_back) public void onBack(){
+        BaseAuthFragment baseAuthFragment = new BaseAuthFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_fragment_base_auth, baseAuthFragment);
+        ft.commit();
     }
 
     private Boolean isSignInForm(){

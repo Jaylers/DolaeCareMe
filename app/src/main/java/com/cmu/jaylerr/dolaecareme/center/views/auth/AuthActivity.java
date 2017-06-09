@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.LanguageListFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.LanguageListFragment;
 import com.cmu.jaylerr.dolaecareme.descendant.descendantview.DescendantMainActivity;
 import com.cmu.jaylerr.dolaecareme.elderly.elderlyview.ElderlyMainActivity;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.LanguageManager;

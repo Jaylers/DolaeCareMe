@@ -43,4 +43,7 @@
     <string name="title_remind">Remind</string>
     <string name="title_settings">Settings</string>
     <string name="title_activity_descendant_main">Descendant Main</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

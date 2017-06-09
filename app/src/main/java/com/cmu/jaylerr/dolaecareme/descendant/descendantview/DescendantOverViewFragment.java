@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cmu.jaylerr.dolaecareme.R;
-import com.cmu.jaylerr.dolaecareme.center.views.heart.HeartInfoFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.HeartInfoFragment;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.CallMobile;
 
 /**

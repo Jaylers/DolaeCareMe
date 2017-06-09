@@ -1,4 +1,4 @@
-package com.cmu.jaylerr.dolaecareme.center.views.heart;
+package com.cmu.jaylerr.dolaecareme.center.views.togetherview;
 
 
 import android.os.Bundle;
@@ -24,7 +24,7 @@ public class HeartInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_heart_info, container, false);
+        return inflater.inflate(R.layout.fragment_together_heart_info, container, false);
     }
 
 }
