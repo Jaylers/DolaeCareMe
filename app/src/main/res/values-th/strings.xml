@@ -16,7 +16,7 @@
     <string name="auth_message_user_gmail">ผู้ใช้บัญชี gmail</string>
     <string name="auth_message_username">ชื่อผู้ใช้</string>
     <string name="err_message_required">ฟิลด์ที่ต้องระบุ</string>
-    <string name="hello_blank_fragment"></string>
+    <string name="hello_blank_fragment">สวัสดี</string>
     <string name="message_back">กลับ</string>
     <string name="app_message_confirm_to_close_app">กดกลับอีกครั้งเพื่อออกจากแอปพลิเคชัน</string>
     <string name="title_activity">กิจกรรม</string>
@@ -32,4 +32,11 @@
     <string name="app_message_language">ภาษา</string>
     <string name="auth_message_i_am_descendant">ฉันเป็นลูกหลาน</string>
     <string name="auth_message_i_am_elderly">ฉันเป็นผู้สูงอายุ</string>
+    <string name="err_message_connecting">กำลังเชื่อมต่อ</string>
+    <string name="err_message_connection_failure">การเชื่อมต่อล้มเหลว \n กรุณาตรวจสอบการเชื่อมต่อ</string>
+    <string name="message_close">ปิด</string>
+    <string name="message_full">เต็มจอ</string>
+    <string name="message_pause">หยุด</string>
+    <string name="message_play">เล่น</string>
+    <string name="message_retry">ลองอีกครั้ง</string>
 </resources>

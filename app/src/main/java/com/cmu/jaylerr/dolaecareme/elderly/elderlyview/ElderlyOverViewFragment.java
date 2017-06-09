@@ -12,6 +12,9 @@ import com.cmu.jaylerr.dolaecareme.R;
 
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -23,32 +26,29 @@ public class ElderlyOverViewFragment extends Fragment {
     }
 
     View view;
-    ImageView img_main_elderly_sos;
-    ImageView img_heart_rate_line;
-    ImageView img_pills_morning;
-    ImageView img_pills_noon;
-    ImageView img_pills_evening;
-    ImageView img_pills_night;
+    @BindView(R.id.img_main_elderly_sos) ImageView img_main_elderly_sos;
+    @BindView(R.id.img_heart_rate_line) ImageView img_heart_rate_line;
+    @BindView(R.id.img_pills_morning) ImageView img_pills_morning;
+    @BindView(R.id.img_pills_noon) ImageView img_pills_noon;
+    @BindView(R.id.img_pills_evening) ImageView img_pills_evening;
+    @BindView(R.id.img_pills_night) ImageView img_pills_night;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_eldely_over_view, container, false);
-        setInjectionView();
+        ButterKnife.bind(this, view);
+
+        setOptionView();
         setPillsToDay();
         setOnClick();
         return view;
     }
 
-    private void setInjectionView(){
-        img_main_elderly_sos = (ImageView) view.findViewById(R.id.img_main_elderly_sos);
-        img_heart_rate_line = (ImageView) view.findViewById(R.id.img_heart_rate_line);
+    private void setOptionView(){
         img_heart_rate_line.setScaleType(ImageView.ScaleType.FIT_XY);
-        img_pills_morning = (ImageView) view.findViewById(R.id.img_pills_morning);
-        img_pills_noon = (ImageView) view.findViewById(R.id.img_pills_noon);
-        img_pills_evening = (ImageView) view.findViewById(R.id.img_pills_evening);
-        img_pills_night = (ImageView) view.findViewById(R.id.img_pills_night);
+
     }
 
     private void setOnClick(){

@@ -7,11 +7,13 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.center.views.togetherview.LanguageListFragment;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,38 +26,22 @@ public class DescendantSettingFragment extends Fragment {
     }
 
     View view;
-    RelativeLayout relat_language;
-    RelativeLayout relat_sign_out;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_descendant_setting, container, false);
-        setInjectionView();
-        setOnclick();
+        ButterKnife.bind(this, view);
         return view;
     }
 
-    private void setInjectionView(){
-        relat_language = (RelativeLayout) view.findViewById(R.id.relative_descendant_setting_language);
-        relat_sign_out = (RelativeLayout) view.findViewById(R.id.relative_descendant_setting_sign_out);
+    @OnClick(R.id.relative_descendant_setting_language) public void onLanguageSetting(){
+        doLanguage();
     }
 
-    private void setOnclick(){
-        relat_language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doLanguage();
-            }
-        });
-
-        relat_sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doSignOut();
-            }
-        });
+    @OnClick(R.id.relative_descendant_setting_sign_out) public void onSignOut(){
+        doSignOut();
     }
 
     private void doLanguage(){

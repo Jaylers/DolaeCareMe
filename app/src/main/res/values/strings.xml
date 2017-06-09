@@ -11,6 +11,7 @@
 
     //Error message
     <string name="err_message_required">Required</string>
+    <string name="err_message_connection_failure">Network connection error \n Please check your connection</string>
 
     //Language
     <string name="language_thailand" translatable="false">ภาษาไทย</string>
@@ -18,6 +19,11 @@
 
     //Normal message
     <string name="message_back">Back</string>
+    <string name="message_play">Play</string>
+    <string name="message_pause">Pause</string>
+    <string name="message_full">Full screen</string>
+    <string name="message_close">Close</string>
+    <string name="message_retry">Retry</string>
     <string name="app_message_request_permission_call">Please allow us to make a Call</string>
     <string name="app_message_permission_denied">Permission denied</string>
     <string name="app_message_ok">OK</string>
@@ -31,6 +37,7 @@
     <string name="app_message_app_language">Application language is </string>
     <string name="app_message_language">language</string>
     <string name="app_message_sign_out">sign out</string>
+    <string name="err_message_connecting">Connecting . .</string>
 
     <string name="auth_message_i_am_elderly">I am elderly</string>
     <string name="auth_message_i_am_descendant">I am descendant</string>

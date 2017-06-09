@@ -34,6 +34,7 @@
             android:name=".descendant.descendantview.DescendantMainActivity"
             android:label="@string/title_activity_descendant_main"
             android:screenOrientation="portrait" />
+        <activity android:name=".descendant.descendantview.CameraActivity"></activity>
     </application>
 
 </manifest>

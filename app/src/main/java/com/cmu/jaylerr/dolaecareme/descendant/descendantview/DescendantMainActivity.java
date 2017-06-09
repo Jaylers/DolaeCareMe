@@ -20,13 +20,14 @@ import com.cmu.jaylerr.dolaecareme.utility.alarm.AlarmReceiverActivity;
 
 import java.util.Calendar;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DescendantMainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    private CircleImageView profile_img;
-
+    @BindView(R.id.message) TextView mTextMessage;
+    @BindView(R.id.img_main_user_profile) CircleImageView profile_img;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -62,17 +63,12 @@ public class DescendantMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descendant_main);
-        setInjectionView();
+        ButterKnife.bind(this);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         doHome();
         setOnClick();
-    }
-
-    private void setInjectionView(){
-        mTextMessage = (TextView) findViewById(R.id.message);
-        profile_img = (CircleImageView) findViewById(R.id.img_main_user_profile);
     }
 
     private void setOnClick(){

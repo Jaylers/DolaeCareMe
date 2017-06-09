@@ -26,6 +26,7 @@ public class DescendantPillsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_descendant_pills, container, false);
+
         return view;
     }
 

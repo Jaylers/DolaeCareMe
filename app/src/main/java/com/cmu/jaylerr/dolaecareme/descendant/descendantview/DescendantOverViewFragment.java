@@ -1,6 +1,7 @@
 package com.cmu.jaylerr.dolaecareme.descendant.descendantview;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -10,29 +11,33 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.center.views.togetherview.HeartInfoFragment;
+import com.cmu.jaylerr.dolaecareme.center.views.togetherview.RemindFragment;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.CallMobile;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DescendantOverViewFragment extends Fragment {
 
-
     public DescendantOverViewFragment() {
         // Required empty public constructor
     }
 
     View view;
-    private TextView mTextMessage;
-    ImageView video_camera;
-    ImageView img_des_call;
-    RelativeLayout relative_descendant_heart_group;
+    @BindView(R.id.frame_frag_camera) FrameLayout camera_frame;
+    @BindView(R.id.btn_des_camera_control) Button camera_control;
+    @BindView(R.id.linear_overview_top_menu_group) LinearLayout top_group;
+    @BindView(R.id.linear_overview_bottom_menu_group) LinearLayout bot_group;
     String elderly_mobile_number = "1175";
 
     @Override
@@ -40,39 +45,55 @@ public class DescendantOverViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_descendant_over_view, container, false);
-        setInjectionView();
-        setOnClick();
+        ButterKnife.bind(this, view);
+        setCamera();
         return view;
     }
 
-    private void setInjectionView(){
-        mTextMessage = (TextView) getActivity().findViewById(R.id.message);
-        video_camera = (ImageView) view.findViewById(R.id.video_camera);
-        video_camera.setScaleType(ImageView.ScaleType.FIT_XY);
-        img_des_call = (ImageView) view.findViewById(R.id.img_des_call);
-        relative_descendant_heart_group = (RelativeLayout) view.findViewById(R.id.relative_descendant_heart_group);
+    @OnClick(R.id.btn_des_camera_full) public void onFullScreen(){
+        Intent intent = new Intent(getActivity(), CameraActivity.class);
+        startActivity(intent);
     }
 
-    private void setOnClick(){
-        img_des_call.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                CallMobile callMobile = new CallMobile(getActivity());
-                callMobile.Call(elderly_mobile_number);
-            }
-        });
+    @OnClick(R.id.btn_des_camera_control) public void onCameraControl(){
+        if (camera_frame.isShown()){
+            camera_control.setText(getString(R.string.message_play));
+            camera_frame.setVisibility(View.GONE);
+        }else {
+            camera_control.setText(getString(R.string.message_pause));
+            camera_frame.setVisibility(View.VISIBLE);
+        }
+    }
 
-        relative_descendant_heart_group.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHeart();
-            }
-        });
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @OnClick(R.id.img_des_call) public void onCall(){
+        CallMobile callMobile = new CallMobile(getActivity());
+        callMobile.Call(elderly_mobile_number);
+    }
+
+    @OnClick(R.id.relative_descendant_heart_group) public void onHeart(){
+        openHeart();
+    }
+
+    @OnClick(R.id.relative_descendant_remind_group) public void onRemind(){
+        openRemind();
+    }
+
+    @OnClick(R.id.relative_descendant_analysis_group) public void onAnalysis(){
+        openAnalysis();
+    }
+
+    private void setCamera(){
+        DescendantCameraFragment descendantCameraFragment = new DescendantCameraFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_frag_camera, descendantCameraFragment);
+        ft.commit();
     }
 
     private void openHeart(){
-        mTextMessage.setText(R.string.title_heart);
         HeartInfoFragment heartInfoFragment = new HeartInfoFragment();
         FragmentManager manager = getFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
@@ -82,8 +103,18 @@ public class DescendantOverViewFragment extends Fragment {
         ft.commit();
     }
 
-    private void doHome(){
-        mTextMessage.setText(R.string.title_home);
+    private void openRemind(){
+        RemindFragment remindFragment = new RemindFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.fade_in,
+                R.anim.fade_out);
+        ft.replace(R.id.frame_descendant_main_content, remindFragment);
+        ft.commit();
+    }
+
+    private void openAnalysis(){
+
     }
 
 }

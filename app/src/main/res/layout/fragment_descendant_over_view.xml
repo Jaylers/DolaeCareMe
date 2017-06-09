@@ -13,21 +13,46 @@
         android:padding="2dp">
 
         <RelativeLayout
+            android:background="@color/black_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="2dp"
-            android:layout_weight="1"
-            android:background="@color/colorRed">
+            android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/video_camera"
+            <FrameLayout
+                android:id="@+id/frame_frag_camera"
+                android:background="@color/black_overlay"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/in_home" />
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+            <Button
+                android:id="@+id/btn_des_camera_control"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/btn_des_camera_full"
+                android:background="@color/white_light_overlay"
+                android:text="@string/message_play"
+                android:layout_margin="1dp"
+                android:textColor="@color/black_overlay" />
+
+            <Button
+                android:id="@+id/btn_des_camera_full"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/white_light_overlay"
+                android:text="@string/message_full"
+                android:layout_margin="1dp"
+                android:textAllCaps="false"
+                android:padding="2dp"
+                android:textColor="@color/black_overlay" />
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/linear_overview_top_menu_group"
+            android:animateLayoutChanges="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -71,6 +96,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/relative_descendant_analysis_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -90,6 +116,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_overview_bottom_menu_group"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -113,6 +140,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/relative_descendant_remind_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
