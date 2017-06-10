@@ -38,7 +38,7 @@ public class DescendantOverViewFragment extends Fragment {
     @BindView(R.id.btn_des_camera_control) Button camera_control;
     @BindView(R.id.linear_overview_top_menu_group) LinearLayout top_group;
     @BindView(R.id.linear_overview_bottom_menu_group) LinearLayout bot_group;
-    String elderly_mobile_number = "1175";
+    private String elderly_mobile_number = "1175";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

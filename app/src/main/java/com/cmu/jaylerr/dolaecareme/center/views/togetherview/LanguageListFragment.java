@@ -38,7 +38,7 @@ public class LanguageListFragment extends Fragment {
     }
 
     @OnClick(R.id.relative_language_en)
-    public void languaheEn(){
+    public void languageEn(){
         languageManager.setLanguage(SharedFlag.flag_language_en);
     }
 

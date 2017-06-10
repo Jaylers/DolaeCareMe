@@ -7,11 +7,13 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.center.views.togetherview.LanguageListFragment;
 import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -25,24 +27,25 @@ public class ElderlySettingFragment extends Fragment {
         // Required empty public constructor
     }
 
-    View view;
+    private View view;
+    @BindView(R.id.relative_elderly_setting_language) RelativeLayout language;
+    @BindView(R.id.relative_elderly_setting_sign_out) RelativeLayout signout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_elderly_setting, container, false);
-        ButterKnife.bind(this. view);
-
+        ButterKnife.bind(this, view);
         return view;
     }
 
-    @OnClick(R.id.relative_elderly_setting_language) public void signOut(){
-        doSignOut();
+    @OnClick(R.id.relative_elderly_setting_language) public void onSetting(){
+        doLanguage();
     }
 
-    @OnClick(R.id.relative_elderly_setting_language) public void languageSetting(){
-        doLanguage();
+    @OnClick(R.id.relative_elderly_setting_sign_out) public void onSignOut(){
+        doSignOut();
     }
 
     private void doLanguage(){

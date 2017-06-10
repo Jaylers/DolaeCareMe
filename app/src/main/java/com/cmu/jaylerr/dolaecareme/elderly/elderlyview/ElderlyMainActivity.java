@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.cmu.jaylerr.dolaecareme.R;
 import com.cmu.jaylerr.dolaecareme.center.views.togetherview.HeartInfoFragment;
 import com.cmu.jaylerr.dolaecareme.center.views.togetherview.RemindFragment;
+import com.cmu.jaylerr.dolaecareme.utility.actioncenter.ApplicationManager;
 
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ElderlyMainActivity extends AppCompatActivity {
@@ -58,6 +60,11 @@ public class ElderlyMainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @OnClick(R.id.img_main_user_profile) public void signOut(){
+        ApplicationManager applicationManager = new ApplicationManager(this);
+        applicationManager.signOut();
     }
 
     private void setInjectionView(){

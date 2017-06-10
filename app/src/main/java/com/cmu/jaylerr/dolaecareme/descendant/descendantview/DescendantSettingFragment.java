@@ -36,9 +36,7 @@ public class DescendantSettingFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.relative_descendant_setting_language) public void onLanguageSetting(){
-        doLanguage();
-    }
+    @OnClick(R.id.relative_descendant_setting_language) public void onLanguageSetting(){ doLanguage();}
 
     @OnClick(R.id.relative_descendant_setting_sign_out) public void onSignOut(){
         doSignOut();
